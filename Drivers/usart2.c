@@ -22,15 +22,18 @@ void USART2_CFG()
 	GPIO_InitTypeDef  GPIO_InitStructure;
 	NVIC_InitTypeDef  NVIC_InitStructure;
 	
-	    
-	RCC_AHB1PeriphClockCmd(USART2_RCC_AHB,ENABLE);
-	RCC_APB1PeriphClockCmd(USART2_RCC_APB,ENABLE);
 	
+	//配置时钟    
+	RCC_AHB1PeriphClockCmd(USART2_RCC_AHB,ENABLE);//配置相关IO的时钟
+	RCC_APB1PeriphClockCmd(USART2_RCC_APB,ENABLE);//配置USART2外设的时钟
+	
+	
+	//使能IO的第二功能
 	#ifdef USART2_MODE_RX
-		GPIO_PinAFConfig(USART2_GPIO_PORT,USART2_GPIO_RXSRC ,GPIO_AF_USART2);
+		GPIO_PinAFConfig(USART2_GPIO_PORT,USART2_GPIO_RXSRC ,GPIO_AF_USART2);//使能IO的第二功能
 	#endif
 	#ifdef USART2_MODE_TX
-		GPIO_PinAFConfig(USART2_GPIO_PORT,USART2_GPIO_TXSRC ,GPIO_AF_USART2);
+		GPIO_PinAFConfig(USART2_GPIO_PORT,USART2_GPIO_TXSRC ,GPIO_AF_USART2);//使能IO的第二功能
 	#endif
 	
 //错误实例->GPIO_PinAFConfig(USART2_GPIO_PORT,USART2_GPIO_PINSRC ,GPIO_AF_USART2);
@@ -40,6 +43,7 @@ void USART2_CFG()
 //若如同错误实例所示那样，会导致乱码
 
 
+	//配置GPIO
 	GPIO_InitStructure.GPIO_Pin = USART2_GPIO_PIN;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
@@ -48,6 +52,7 @@ void USART2_CFG()
 	GPIO_Init(USART2_GPIO_PORT,&GPIO_InitStructure);
 	
 	
+	//配置USART外设
 	USART_DeInit(USART2);
 	USART_InitStructure.USART_BaudRate = USART2_BAUDRATE;
 	USART_InitStructure.USART_WordLength = USART2_WORDLEN;
@@ -58,12 +63,20 @@ void USART2_CFG()
 	USART_Init(USART2,&USART_InitStructure);
   USART_Cmd(USART2,ENABLE);
 	
+	//开启USART中断
+	//无论是否使用DMA，此中断将一直开启
 	USART_ITConfig(USART2,USART2_INT,ENABLE);  
 	NVIC_InitStructure.NVIC_IRQChannel = USART2_IRQn;
   NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
   NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
   NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-  NVIC_Init(&NVIC_InitStructure);		
+  NVIC_Init(&NVIC_InitStructure);
+
+	
+	//配置DMA
+	#ifdef USART2_USEDMA 
+		
+  #endif
 }
 void USART2_IRQHandler(void)
 {

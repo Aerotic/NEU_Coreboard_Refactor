@@ -59,6 +59,9 @@
 
 
 
+ /**
+ **Work mode settings
+ */
 	#if defined USART2_MODE_TX && defined USART2_MODE_RX
 		#define USART2_MODE_DX			/*Duplex Mode*/
 	#endif	
@@ -66,8 +69,8 @@
 		#define USART2_GPIO_PIN			USART2_PIN_TX | USART2_PIN_RX
 		#define USART2_MODE 				USART_Mode_Rx | USART_Mode_Tx
 		#ifdef USART2_USEDMA
-			uint8_t USART2RxBuff[USART2_DMA_RX_BUFFSIZE];
-			uint8_t USART2TxBuff[USART2_DMA_TX_BUFFSIZE];
+			extern uint8_t USART2RxBuff[USART2_DMA_RX_BUFFSIZE];
+			extern uint8_t USART2TxBuff[USART2_DMA_TX_BUFFSIZE];
 			#define USART2_INT USART_IT_IDLE
 		#endif	
 	#elif defined USART2_MODE_TX
@@ -83,7 +86,7 @@
 			extern uint8_t USART2RxBuff[USART2_DMA_RX_BUFFSIZE];
 			#define USART2_INT USART_IT_IDLE
 		#else
-			uint8_t USART2RxByte;
+			extern uint8_t USART2RxByte;
 			#define USART2_INT USART_IT_RXNE
 		#endif
 	#endif
