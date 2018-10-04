@@ -44,12 +44,12 @@ void USART2_CFG()
 		GPIO_PinAFConfig(USART2_GPIO_PORT,USART2_GPIO_TXSRC ,GPIO_AF_USART2);//使能IO的第二功能
 	#endif
 	
-/*错误实例->GPIO_PinAFConfig(USART2_GPIO_PORT,USART2_GPIO_PINSRC ,GPIO_AF_USART2);
-**“USART2_GPIO_PINSRC”是一个宏定义，代表“GPIO_PinSource2 | GPIO_PinSource3”
-**在此特别提醒后来者，
-**GPIO_PinAFConfig()这个函数只能如上所示一个引脚一个引脚地挂可选功能(AF)
-**若如同错误实例所示那样，会导致乱码
-*/
+	/*错误实例->GPIO_PinAFConfig(USART2_GPIO_PORT,USART2_GPIO_PINSRC ,GPIO_AF_USART2);
+	**“USART2_GPIO_PINSRC”是一个宏定义，代表“GPIO_PinSource2 | GPIO_PinSource3”
+	**在此特别提醒后来者，
+	**GPIO_PinAFConfig()这个函数只能如上所示一个引脚一个引脚地挂可选功能(AF)
+	**若如同错误实例所示那样，会导致乱码
+	*/
 
 	//配置GPIO
 	GPIO_InitStructure.GPIO_Pin = USART2_GPIO_PIN;
@@ -184,11 +184,13 @@ void USART2_IRQHandler(void)
 			
 		}
 	}
+	void writeUSART2(uint8_t* dptr, int32_t dlen){
+	uint8_t i;
+	DMA_Cmd(DMA1_Stream6,DISABLE);
+	if(dlen > USART2_DMA_TX_BUFFSIZE) dlen = USART2_DMA_TX_BUFFSIZE;
+	for(i = 0; i < dlen; i++) USART2TxBuff[i] = dptr[i];
+}	
 #endif
-
 void setUSART2DMARxFunc(void (*fptr)(void)){
 	USART2DMARxFunc = *fptr;
-}
-void getUSART2RxBuff(uint8_t* dst){
-	
 }
