@@ -1,5 +1,5 @@
 Dependencies for Project 'NEU_Coreboard', Target 'NEU_Coreboard': (DO NOT MODIFY !)
-F (.\USR\main.c)(0x5BB077BF)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\USR -I .\F4StdLib -I .\Drivers -I .\Modules-IC:\Users\Aero\Documents\NEU_Coreboard_RE\RTE-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="521" -DSTM32F407xx -DSTM32_f4xx -DUSE_STDPERIPH_DRIVER --C99-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\USR\main.c)(0x5BB58DB5)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\USR -I .\F4StdLib -I .\Drivers -I .\Modules-IC:\Users\Aero\Documents\NEU_Coreboard_RE\RTE-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="521" -DSTM32F407xx -DSTM32_f4xx -DUSE_STDPERIPH_DRIVER --C99-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (.\F4StdLib\stm32f4xx.h)(0x5B073F80)
 I (.\F4StdLib\core_cm4.h)(0x5B073F80)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E3E26)
@@ -19,7 +19,7 @@ I (.\F4StdLib\stm32f4xx_syscfg.h)(0x5B073F80)
 I (.\F4StdLib\stm32f4xx_tim.h)(0x5B073F80)
 I (.\F4StdLib\stm32f4xx_usart.h)(0x5B073F80)
 I (.\F4StdLib\misc.h)(0x5B073F80)
-I (.\Drivers\usart2.h)(0x5BB579C2)
+I (.\Drivers\usart2.h)(0x5BB58D98)
 I (.\Modules\serialprint.h)(0x5BAFDC10)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x574E3E26)
 F (.\USR\stm32f4xx_it.c)(0x5B073F80)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\USR -I .\F4StdLib -I .\Drivers -I .\Modules-IC:\Users\Aero\Documents\NEU_Coreboard_RE\RTE-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="521" -DSTM32F407xx -DSTM32_f4xx -DUSE_STDPERIPH_DRIVER --C99-o .\objects\stm32f4xx_it.o --omf_browse .\objects\stm32f4xx_it.crf --depend .\objects\stm32f4xx_it.d)
@@ -65,8 +65,8 @@ I (.\F4StdLib\stm32f4xx_tim.h)(0x5B073F80)
 I (.\F4StdLib\stm32f4xx_usart.h)(0x5B073F80)
 I (.\F4StdLib\misc.h)(0x5B073F80)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x574E3E26)
-F (.\Drivers\usart2.c)(0x5BB576A4)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\USR -I .\F4StdLib -I .\Drivers -I .\Modules-IC:\Users\Aero\Documents\NEU_Coreboard_RE\RTE-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="521" -DSTM32F407xx -DSTM32_f4xx -DUSE_STDPERIPH_DRIVER --C99-o .\objects\usart2.o --omf_browse .\objects\usart2.crf --depend .\objects\usart2.d)
-I (Drivers\usart2.h)(0x5BB579C2)
+F (.\Drivers\usart2.c)(0x5BB58D1E)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\USR -I .\F4StdLib -I .\Drivers -I .\Modules-IC:\Users\Aero\Documents\NEU_Coreboard_RE\RTE-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="521" -DSTM32F407xx -DSTM32_f4xx -DUSE_STDPERIPH_DRIVER --C99-o .\objects\usart2.o --omf_browse .\objects\usart2.crf --depend .\objects\usart2.d)
+I (Drivers\usart2.h)(0x5BB58D98)
 I (.\F4StdLib\stm32f4xx.h)(0x5B073F80)
 I (.\F4StdLib\core_cm4.h)(0x5B073F80)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E3E26)

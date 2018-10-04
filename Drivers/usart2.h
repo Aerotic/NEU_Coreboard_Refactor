@@ -27,9 +27,12 @@
 	/**
 	**RCC settings
 	*/
-	#define USART2_RCC_AHB			RCC_AHB1Periph_GPIOA
 	#define USART2_RCC_APB			RCC_APB1Periph_USART2
-
+	#ifdef USART2_USEDMA
+		#define USART2_RCC_AHB			RCC_AHB1Periph_GPIOA | RCC_AHB1Periph_DMA1
+	#else
+		#define USART2_RCC_AHB			RCC_AHB1Periph_GPIOA
+	#endif
 	/**
 	**GPIO settings
 	*/
@@ -87,7 +90,7 @@
 			#define USART2_INT USART_IT_IDLE
 		#else
 			extern uint8_t USART2RxByte;
-			#define USART2_INT USART_IT_RXNE
+			
 		#endif
 	#endif
 
@@ -100,4 +103,5 @@
 	#if defined USART2_MODE_TX && defined USART2_USEDMA
 		void DMA1_Stream6_IRQHandler(void);
 	#endif
+	void setUSART2DMARxFunc(void (*fptr)(void));
 #endif 
